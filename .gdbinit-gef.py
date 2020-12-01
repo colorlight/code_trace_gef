@@ -8681,7 +8681,7 @@ class TraceRunCommand(GenericCommand):
     def trace(self, loc_start, loc_end, depth):
         info("Tracing from {:#x} to {:#x} (max depth={:d})".format(loc_start, loc_end,depth))
         logfile = "{:s}{:#x}-{:#x}.txt".format(self.get_setting("tracefile_prefix"), loc_start, loc_end)
-        enable_redirect_output(to_file=logfile)
+        # enable_redirect_output(to_file=logfile)
         hide_context()
         # self.start_tracing(loc_start, loc_end, depth)
         self.start_tracing_colorlight(loc_start, loc_end, depth)
@@ -8706,7 +8706,10 @@ class TraceRunCommand(GenericCommand):
 
         while_list= {0xb3ac:[0x000B454],
                      0x0000D98C:[0x0000D988,0x0000D998],
-                     0x0000EC64:[0x0000EC68,0x0000EDD0]
+                     0x0000EC64:[0x0000EC68,0x0000EDD0],
+                     0x0000F604:[0x0000F608],
+                     0x0000FDD0:[0x0000FE78],
+                     0x0000F5E4:[0x0000F5E8],
                     }
         while loc_cur != loc_end:
             try:
